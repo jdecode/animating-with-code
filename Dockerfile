@@ -1,1 +1,2 @@
-FROM devopsfnl/image:php-8.2-npx
+FROM jdecode/image:node-php
+
