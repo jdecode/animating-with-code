@@ -1,0 +1,23 @@
+version : "3"
+services:
+  awc-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: awc-app
+    ports:
+      - "2320:3000"
+    volumes:
+      - ./:/var/www/html
+    restart: "no"
+    networks:
+      awc-network:
+        ipv4_address: 23.205.1.1
+
+# Local network for services running using this docker-compose config
+networks:
+  awc-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 23.205.0.0/16
